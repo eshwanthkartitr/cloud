@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enhanced API Response UI</title>
+  <title>Enhanced API Response UI (Localhost)</title>
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -90,10 +90,10 @@
 </head>
 <body>
   <div class="container">
-    <h1 class="glow-text">Enhanced API Response Viewer</h1>
-    <button onclick="getAPIResponse('/will')">Get Hello World</button>
-    <button onclick="getAPIResponse('/ready')">Get Ready Response</button>
-    <button onclick="getAPIResponse('/random')">Get Random Number</button>
+    <h1 class="glow-text">Enhanced API Response Viewer (Localhost)</h1>
+    <button onclick="getAPIResponse('http://localhost:3000/will')">Get Hello World</button>
+    <button onclick="getAPIResponse('http://localhost:3000/ready')">Get Ready Response</button>
+    <button onclick="getAPIResponse('http://localhost:3000/random')">Get Random Number</button>
     <div id="loading">Loading...</div>
     <div id="response" class="response-box">
       <p class="response-text">Click a button to get the response</p>
