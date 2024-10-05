@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Response UI</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #0e0e0e;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .response-box {
+      background-color: #333;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .response-box:hover {
+      transform: scale(1.05);
+    }
+
+    button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .glow-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 20px #0e76a8, 0 0 30px #0e76a8;
+    }
+
+    .response-text {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="glow-text">API Response Viewer</h1>
+    <button onclick="getAPIResponse('/will')">Get Hello World</button>
+    <button onclick="getAPIResponse('/ready')">Get Ready Response</button>
+    <div id="response" class="response-box">
+      <p class="response-text">Click a button to get the response</p>
+    </div>
+  </div>
+
+  <script>
+    async function getAPIResponse(endpoint) {
+      const response = await fetch(endpoint);
+      const data = await response.json();
+      document.getElementById('response').innerHTML = `<p class="response-text">${JSON.stringify(data)}</p>`;
+    }
+  </script>
+</body>
+</html>
